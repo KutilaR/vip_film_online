@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Video Player</title>
- <script type="text/javascript">
-  function playVideo(){
-   var params = new URLSearchParams(window.location.search);
-   var iframeSrc = params.get("iframe");
-   document.getElementById("video-frame").src = iframeSrc;
-   document.getElementById("video-frame").allowfullscreen = true;
-   document.body.style.backgroundColor = "#000000";
+ <title>Пример страницы с iframe</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style>
+  body{
+   background-color: black;
+   margin: 0;
+   padding: 0;
+   height: 100%;
   }
- </script>
+  iframe{
+   width: 100%;
+   height: 100%;
+   border: none;
+  }
+ </style>
 </head>
-<body onload="playVideo()">
- <iframe id="video-frame" width="100%" height="100%" frameborder="0"></iframe>
- <p style="position: fixed; bottom: 5px; left: 5px; color: white">The site owner is not responsible for the content that is displayed in the iframe - the link is inserted automatically from the get-parameter "iframe".</p>
+<body>
+ <iframe src="" id="video"></iframe>
+
+ <script>
+  //Получаем параметры из строки запроса
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const iframe = urlParams.get('iframe');
+
+  //Устанавливаем src для iframe
+  document.getElementById('video').src = iframe;
+ </script>
 </body>
 </html>
