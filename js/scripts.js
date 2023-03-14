@@ -1,0 +1,1 @@
+$(document).ready((function(){$(".download-btn").on("click",(function(t){t.preventDefault();var e=document.createElement("a");e.setAttribute("href",document.querySelector("video").getAttribute("src")),e.setAttribute("download","download"),onload=e.click()}))}));
