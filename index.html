@@ -1,29 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
- <meta charset="utf-8">
- <title>Пример страницы с iframe и JavaScript</title>
- <style>
-  body {
-   background-color: #000;
-   margin: 0;
-   padding: 0;
-  }
-  
-  iframe {
-   width: 100%;
-   height: 100%;
-   border: none;
-  }
- </style>
+ <meta charset="UTF-8">
+ <title>Video Player</title>
+ <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
+<body style="background-color: black;">
+ <div class="film-container">
+  <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+ </div>
  <script>
-  var urlParams = new URLSearchParams(window.location.search);
-  var iframeUrl = urlParams.get("iframe");
-  
-  document.write('<iframe src="' + iframeUrl + '" allowfullscreen></iframe>');
+  let urlParams = new URLSearchParams(window.location.search);
+  let videoUrl = urlParams.get('iframe');
+  document.getElementById('videoPlayer').src = videoUrl;
  </script>
 </body>
 </html>
