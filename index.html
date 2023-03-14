@@ -1,34 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
- <title>Пример страницы с iframe</title>
  <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Пример страницы с iframe и JavaScript</title>
  <style>
-  body{
-   background-color: black;
+  body {
+   background-color: #000;
    margin: 0;
    padding: 0;
-   height: 100%;
   }
-  iframe{
+  
+  iframe {
    width: 100%;
    height: 100%;
    border: none;
   }
  </style>
 </head>
+
 <body>
- <iframe src="" id="video"></iframe>
-
  <script>
-  //Получаем параметры из строки запроса
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const iframe = urlParams.get('iframe');
-
-  //Устанавливаем src для iframe
-  document.getElementById('video').src = iframe;
+  var urlParams = new URLSearchParams(window.location.search);
+  var iframeUrl = urlParams.get("iframe");
+  
+  document.write('<iframe src="' + iframeUrl + '" allowfullscreen></iframe>');
  </script>
 </body>
 </html>
