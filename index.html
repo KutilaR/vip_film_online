@@ -2,33 +2,18 @@
 <html>
 <head>
  <title>Video Player</title>
- <meta charset="utf-8">
- <style>
-  body {
-   background-color: black;
-   margin: 0;
-   padding: 0;
-  }
-  iframe {
-   width: 100vw;
-   height: 100vh;
-   border: none;
-  }
- </style>
- <script>
-  window.onload = function() {
-   var queryString = window.location.search;
-   var urlParams = new URLSearchParams(queryString);
-   var iframeUrl = urlParams.get('iframe');
-   var videoIframe = document.createElement('iframe');
-   videoIframe.setAttribute('src', iframeUrl);
-   document.body.appendChild(videoIframe);
-   document.onclick = function() {
-    videoIframe.webkitRequestFullscreen();
-   }
+ <script type="text/javascript">
+  function playVideo(){
+   var params = new URLSearchParams(window.location.search);
+   var iframeSrc = params.get("iframe");
+   document.getElementById("video-frame").src = iframeSrc;
+   document.getElementById("video-frame").allowfullscreen = true;
+   document.body.style.backgroundColor = "#000000";
   }
  </script>
 </head>
-<body>
+<body onload="playVideo()">
+ <iframe id="video-frame" width="100%" height="100%" frameborder="0"></iframe>
+ <p style="position: fixed; bottom: 5px; left: 5px; color: white">The site owner is not responsible for the content that is displayed in the iframe - the link is inserted automatically from the get-parameter "iframe".</p>
 </body>
 </html>
