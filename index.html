@@ -1,32 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Страница c видео</title>
+ <title>Страница с iframe</title>
 </head>
 <body>
- <h1>Видео</h1>
- <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+ <div id="video-container"></div>
  <script>
-  let videoUrl = getUrlParameter('url');
-  if(videoUrl){
-   document.getElementById('videoFrame').src = videoUrl;
-  }
-  
-  function getUrlParameter(sParam) {
-   let sPageURL = window.location.search.substring(1),
-   sURLVariables = sPageURL.split('&'),
-   sParameterName,
-   i;
+  // Получаем параметры из GET-запроса
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const iframeUrl = urlParams.get('iframe');
 
-   for (i = 0; i < sURLVariables.length; i++) {
-    sParameterName = sURLVariables[i].split('=');
-
-    if (sParameterName[0] === sParam) {
-     return decodeURIComponent(sParameterName[1].replace(/\+/g, ' '));
-    }
-   }
-   return null;
-  }
+  // Создаем iframe и подставляем полученную ссылку с параметрами
+  const iframe = document.createElement('iframe');
+  iframe.setAttribute('src', iframeUrl);
+  document.getElementById('video-container').appendChild(iframe);
  </script>
 </body>
 </html>
