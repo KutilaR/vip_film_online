@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Страница с iframe</title>
+ <title>Видео страница</title>
+ <style>
+  body {
+   background-color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+  }
+  iframe {
+   width: 610px;
+   height: 370px;
+  }
+ </style>
 </head>
 <body>
- <div id="video-container"></div>
  <script>
-  // Получаем параметры из GET-запроса
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
+  const urlParams = new URLSearchParams(window.location.search);
   const iframeUrl = urlParams.get('iframe');
-
-  // Создаем iframe и подставляем полученную ссылку с параметрами
-  const iframe = document.createElement('iframe');
-  iframe.setAttribute('src', iframeUrl);
-  document.getElementById('video-container').appendChild(iframe);
+  document.write(`<iframe src="${iframeUrl}" frameborder="0" allowfullscreen></iframe>`);
  </script>
 </body>
 </html>
