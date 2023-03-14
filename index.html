@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Metas -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Онлайн 🍿VIP 🎬 Зал" />
+    <meta name="description" content="👀 Онлайн 🍿 Зал" />
   
     <!-- Title  -->
-    <title>Онлайн 🍿VIP 🎬 Зал</title>
+    <title>👀 Онлайн 🍿 Зал</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico" />
@@ -49,12 +49,14 @@
 </head>
 <body>
 
-  <div class="film-container">
-    <?php
-      $iframe_link = $_GET['iframe'];
-      echo "<iframe src='$iframe_link' frameborder='0' allowfullscreen></iframe>";
-    ?>
-  </div>
+<div class="film-container">
+  <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+ </div>
+ <script>
+  let urlParams = new URLSearchParams(window.location.search);
+  let videoUrl = urlParams.get('iframe');
+  document.getElementById('videoPlayer').src = videoUrl;
+ </script>
 
   <div class="footer">
     <p>The site owner is not responsible for the content that is displayed in the iframe - the link is inserted automatically from the get-parameter "iframe".</p>
